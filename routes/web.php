@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+//Route::group(['prefix' => 'productos'], function () { // Agrupamos las rutas
+    Route::get('/productos', function () {
+        return view('productos.index');
+    });
+
+    Route::get('/productos/create', function () {
+        return view('productos.create');
+    });
+
+    Route::get('/productos/show/{id}', function ($id) {
+        return view('productos.show', array('id'=>$id));
+    });
+
+    Route::get('/productos/edit/{id}', function ($id) {
+        return view('productos.edit', array('id'=>$id));
+    });
+
+//});
