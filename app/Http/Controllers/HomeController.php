@@ -6,6 +6,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller{
     public function getHome(){
-        return redirect()->action('ProductosCotroller@getIndex');
+        return redirect()->action([ProductoController::class, 'getIndex']);
     }
 }
